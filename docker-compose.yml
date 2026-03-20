@@ -1,0 +1,48 @@
+services:
+  db:
+    image: pgvector/pgvector:pg16
+    container_name: rag_db
+    environment:
+      POSTGRES_DB: courserag
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - ragnet
+
+  backend:
+    build:
+      context: ./backend
+    container_name: rag_backend
+    environment:
+      DATABASE_URL: postgresql://postgres:password@db:5432/courserag
+    env_file:
+      - ./backend/.env
+    depends_on:
+      - db
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./slides:/app/slides
+    networks:
+      - ragnet
+
+  frontend:
+    build:
+      context: ./frontend
+    container_name: rag_frontend
+    depends_on:
+      - backend
+    ports:
+      - "5173:5173"
+    networks:
+      - ragnet
+
+volumes:
+  pgdata:
+
+networks:
+  ragnet:
