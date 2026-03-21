@@ -5,7 +5,7 @@ from typing import Dict, List
 
 import fitz
 from docx import Document
-from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain_text_splitters import RecursiveCharacterTextSplitter
 from openai import OpenAI
 from pptx import Presentation
 

@@ -12,6 +12,9 @@ export default function App() {
   const [result, setResult] = useState(null);
   const [logs, setLogs] = useState([]);
   const [activeTab, setActiveTab] = useState("qa");
+  const [ingestLoading, setIngestLoading] = useState(false);
+  const [ingestMessage, setIngestMessage] = useState("");
+  const [ingestError, setIngestError] = useState("");
 
   async function fetchLogs() {
     const res = await fetch(`${API_BASE}/logs`);
@@ -23,6 +26,31 @@ export default function App() {
   useEffect(() => {
     fetchLogs().catch(() => {});
   }, []);
+
+  async function handleIngest() {
+    setIngestError("");
+    setIngestMessage("");
+    setIngestLoading(true);
+    try {
+      const res = await fetch(`${API_BASE}/ingest`, { method: "POST" });
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(
+          typeof data.detail === "string"
+            ? data.detail
+            : data.detail?.[0]?.msg || "Ingest failed"
+        );
+      }
+      const data = await res.json();
+      setIngestMessage(
+        `Done: ${data.files_processed ?? 0} file(s) processed, ${data.chunks_stored ?? 0} chunk(s) stored.`
+      );
+    } catch (err) {
+      setIngestError(err.message || "Ingest failed");
+    } finally {
+      setIngestLoading(false);
+    }
+  }
 
   async function onSubmit(e) {
     e.preventDefault();
@@ -71,8 +99,29 @@ export default function App() {
 
       {activeTab === "qa" && (
         <>
-          <section className="panel">
-            <h2>Query Panel</h2>
+          <section className="panel query-panel">
+            <div className="panel-header">
+              <div className="panel-header-text">
+                <h2>Query Panel</h2>
+                <p className="ingest-hint">
+                  Index course files from the server <code>slides/</code> folder (PDF, PPTX, DOCX).
+                  Skips files already ingested.
+                </p>
+              </div>
+              <button
+                type="button"
+                className="btn-ingest"
+                onClick={handleIngest}
+                disabled={ingestLoading}
+                aria-label="Ingest course files from the slides folder"
+              >
+                {ingestLoading ? "Ingesting…" : "Ingest slides"}
+              </button>
+            </div>
+            {ingestLoading && <div className="spinner">Indexing documents…</div>}
+            {ingestError && <p className="error">{ingestError}</p>}
+            {ingestMessage && <p className="ingest-success">{ingestMessage}</p>}
+
             <QueryInput
               question={question}
               setQuestion={setQuestion}
