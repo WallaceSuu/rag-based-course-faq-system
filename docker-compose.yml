@@ -19,6 +19,7 @@ services:
     container_name: rag_backend
     environment:
       DATABASE_URL: postgresql://postgres:password@db:5432/courserag
+      GOLDEN_DATASET_PATH: /app/data/golden_dataset.json
     env_file:
       - ./backend/.env
     depends_on:
@@ -27,6 +28,7 @@ services:
       - "8000:8000"
     volumes:
       - ./slides:/app/slides
+      - ./backend/data:/app/data
     networks:
       - ragnet
 

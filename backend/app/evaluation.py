@@ -74,3 +74,16 @@ def evaluate(golden_dataset_path: str) -> Dict[str, Any]:
         "improvement": improvement,
         "results": results,
     }
+
+
+if __name__ == "__main__":
+    import os
+    import sys
+
+    path = os.environ.get("GOLDEN_DATASET_PATH")
+    if not path and len(sys.argv) > 1:
+        path = sys.argv[1]
+    if not path:
+        print("Set GOLDEN_DATASET_PATH or pass the dataset path as the first argument.", file=sys.stderr)
+        sys.exit(1)
+    evaluate(path)

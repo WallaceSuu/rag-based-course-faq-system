@@ -1,0 +1,777 @@
+[
+  {
+    "id": "q001",
+    "category": "chapter_1",
+    "type": "factual",
+    "question": "What four categories do the slides say views of AI fall into?",
+    "answer": "Thinking Humanly, Acting Humanly, Thinking Rationally, and Acting Rationally.",
+    "sources": [
+      {
+        "file": "Slides - Ch1 - Introduction.pdf",
+        "page": 3,
+        "excerpt": "Views of AI fall into four categories: Thinking Humanly, Acting Humanly, Thinking Rationally, Acting Rationally."
+      }
+    ],
+    "validation_status": "verified"
+  },
+  {
+    "id": "q002",
+    "category": "chapter_1",
+    "type": "factual",
+    "question": "Which AI perspective does the textbook advocate?",
+    "answer": "Acting Rationally.",
+    "sources": [
+      {
+        "file": "Slides - Ch1 - Introduction.pdf",
+        "page": 3,
+        "excerpt": "The textbook advocates “Acting Rationally”"
+      }
+    ],
+    "validation_status": "verified"
+  },
+  {
+    "id": "q003",
+    "category": "chapter_1",
+    "type": "conceptual",
+    "question": "According to the slides, what is rational behaviour?",
+    "answer": "Doing the right thing.",
+    "sources": [
+      {
+        "file": "Slides - Ch1 - Introduction.pdf",
+        "page": 7,
+        "excerpt": "Rational behaviour: doing the right thing"
+      }
+    ],
+    "validation_status": "verified"
+  },
+  {
+    "id": "q004",
+    "category": "chapter_1",
+    "type": "conceptual",
+    "question": "According to the slides, what is “the right thing” for a rational agent?",
+    "answer": "It is what is expected to maximize goal achievement, given the available information.",
+    "sources": [
+      {
+        "file": "Slides - Ch1 - Introduction.pdf",
+        "page": 7,
+        "excerpt": "The right thing: is expected to maximize goal achievement, given the available information"
+      }
+    ],
+    "validation_status": "verified"
+  },
+  {
+    "id": "q005",
+    "category": "chapter_1",
+    "type": "factual",
+    "question": "Who developed the Turing Test, and in what year?",
+    "answer": "Alan Turing, in 1950.",
+    "sources": [
+      {
+        "file": "Slides - Ch1 - Introduction.pdf",
+        "page": 5,
+        "excerpt": "Developed by Alan Turing in 1950"
+      }
+    ],
+    "validation_status": "verified"
+  },
+  {
+    "id": "q006",
+    "category": "chapter_1",
+    "type": "factual",
+    "question": "Which major AI components are suggested by the Turing Test slide?",
+    "answer": "Natural language processing, knowledge representation, automated reasoning, and machine learning.",
+    "sources": [
+      {
+        "file": "Slides - Ch1 - Introduction.pdf",
+        "page": 5,
+        "excerpt": "Suggested major components of AI: natural language processing, knowledge representation, automated reasoning, machine learning"
+      }
+    ],
+    "validation_status": "verified"
+  },
+  {
+    "id": "q007",
+    "category": "chapter_1",
+    "type": "factual",
+    "question": "What additional capabilities are needed for the Total Turing Test?",
+    "answer": "Computer vision and robotics.",
+    "sources": [
+      {
+        "file": "Slides - Ch1 - Introduction.pdf",
+        "page": 5,
+        "excerpt": "Total Turing Test (physical AI) needs these capabilities too: computer vision, robotics"
+      }
+    ],
+    "validation_status": "verified"
+  },
+  {
+    "id": "q008",
+    "category": "chapter_1",
+    "type": "comparative",
+    "question": "How do the slides distinguish cognitive science and cognitive neuroscience from AI?",
+    "answer": "They say both approaches are now roughly distinct from AI.",
+    "sources": [
+      {
+        "file": "Slides - Ch1 - Introduction.pdf",
+        "page": 4,
+        "excerpt": "Both approaches (Cognitive Science and Cognitive Neuroscience) are now roughly distinct from AI"
+      }
+    ],
+    "validation_status": "verified"
+  },
+  {
+    "id": "q009",
+    "category": "chapter_2",
+    "type": "factual",
+    "question": "What five main components define a problem formulation?",
+    "answer": "Initial state, actions, transition model, goal test, and path.",
+    "sources": [
+      {
+        "file": "Slides - Ch2 - Search - Annotated.pdf",
+        "page": 3,
+        "excerpt": "A problem is usually defined by 5 main components: Initial state ... Actions ... Transition model ... Goal test ... Path"
+      }
+    ],
+    "validation_status": "verified"
+  },
+  {
+    "id": "q010",
+    "category": "chapter_2",
+    "type": "factual",
+    "question": "What is the state space of a problem?",
+    "answer": "It is the set of all states reachable from the initial state by some sequence of actions.",
+    "sources": [
+      {
+        "file": "Slides - Ch2 - Search - Annotated.pdf",
+        "page": 4,
+        "excerpt": "State space ... the set of all states reachable from the initial state by some sequence of actions"
+      }
+    ],
+    "validation_status": "verified"
+  },
+  {
+    "id": "q011",
+    "category": "chapter_2",
+    "type": "factual",
+    "question": "What is a successor in search terminology?",
+    "answer": "Any state reachable from a given state by a single action.",
+    "sources": [
+      {
+        "file": "Slides - Ch2 - Search - Annotated.pdf",
+        "page": 4,
+        "excerpt": "Successor: Any state reachable from a given state by a single action"
+      }
+    ],
+    "validation_status": "verified"
+  },
+  {
+    "id": "q012",
+    "category": "chapter_2",
+    "type": "conceptual",
+    "question": "What does the frontier, or open list, represent in a search tree?",
+    "answer": "It is the set of all leaf nodes available for expansion at any given point.",
+    "sources": [
+      {
+        "file": "Slides - Ch2 - Search - Annotated.pdf",
+        "page": 10,
+        "excerpt": "Frontier or open list is the set of all leaf nodes available for expansion at any given point"
+      }
+    ],
+    "validation_status": "verified"
+  },
+  {
+    "id": "q013",
+    "category": "chapter_2",
+    "type": "comparative",
+    "question": "What queue behavior distinguishes breadth-first search from depth-first search?",
+    "answer": "Breadth-first search uses a first-in first-out queue, while depth-first search uses a last-in first-out queue.",
+    "sources": [
+      {
+        "file": "Slides - Ch2 - Search - Annotated.pdf",
+        "page": 24,
+        "excerpt": "the queue is first-in first-out (FIFO)"
+      },
+      {
+        "file": "Slides - Ch2 - Search - Annotated.pdf",
+        "page": 39,
+        "excerpt": "If we use a last-in first-out (LIFO) queue instead of the FIFO queue that we used in BFS"
+      }
+    ],
+    "validation_status": "verified"
+  },
+  {
+    "id": "q014",
+    "category": "chapter_2",
+    "type": "conceptual",
+    "question": "What does breadth-first search prioritize over depth?",
+    "answer": "It prioritizes breadth, meaning higher-level nodes are evaluated before their children.",
+    "sources": [
+      {
+        "file": "Slides - Ch2 - Search - Annotated.pdf",
+        "page": 24,
+        "excerpt": "This results in higher-level nodes being evaluated before moving on to their children nodes, i.e. “breadth” is prioritized over depth"
+      }
+    ],
+    "validation_status": "verified"
+  },
+  {
+    "id": "q015",
+    "category": "chapter_2",
+    "type": "factual",
+    "question": "What does the heuristic function h(n) represent in best-first search?",
+    "answer": "It is the estimated cost of the cheapest path from the state at node n to a goal state.",
+    "sources": [
+      {
+        "file": "Slides - Ch2 - Search - Annotated.pdf",
+        "page": 94,
+        "excerpt": "h(n) = estimated cost of the cheapest path from the state at node n to a goal state"
+      }
+    ],
+    "validation_status": "verified"
+  },
+  {
+    "id": "q016",
+    "category": "chapter_2",
+    "type": "comparative",
+    "question": "How do greedy best-first search and A* search differ in the slides?",
+    "answer": "Greedy best-first search uses just the heuristic function f(n)=h(n), while A* uses a more sophisticated f(n).",
+    "sources": [
+      {
+        "file": "Slides - Ch2 - Search - Annotated.pdf",
+        "page": 95,
+        "excerpt": "Greedy best-first search ... evaluates nodes by using just the heuristic function f(n) = h(n)"
+      },
+      {
+        "file": "Slides - Ch2 - Search - Annotated.pdf",
+        "page": 104,
+        "excerpt": "A* Search • More sophisticated f(n)"
+      }
+    ],
+    "validation_status": "verified"
+  },
+  {
+    "id": "q017",
+    "category": "chapter_3",
+    "type": "factual",
+    "question": "What is the Wumpus World used as an example for?",
+    "answer": "It is used as a good example for logic and decision making by an agent in an environment.",
+    "sources": [
+      {
+        "file": "Slides - Ch3 - Reasoning & Decision Making - Annotated.pdf",
+        "page": 2,
+        "excerpt": "A good example for logic and decision making by an agent in an environment"
+      }
+    ],
+    "validation_status": "verified"
+  },
+  {
+    "id": "q018",
+    "category": "chapter_3",
+    "type": "factual",
+    "question": "What is the size of the Wumpus World grid, and where does the agent start?",
+    "answer": "It is a 4 × 4 grid of rooms, and the agent starts in square [1,1] facing right.",
+    "sources": [
+      {
+        "file": "Slides - Ch3 - Reasoning & Decision Making - Annotated.pdf",
+        "page": 5,
+        "excerpt": "A 4 × 4 grid of rooms ... The agent always starts in the square labeled [1,1], facing to the right"
+      }
+    ],
+    "validation_status": "verified"
+  },
+  {
+    "id": "q019",
+    "category": "chapter_3",
+    "type": "factual",
+    "question": "What happens when the agent uses the Shoot action in Wumpus World?",
+    "answer": "The arrow travels in a straight line until it kills the wumpus or hits a wall, and only the first Shoot action has any effect.",
+    "sources": [
+      {
+        "file": "Slides - Ch3 - Reasoning & Decision Making - Annotated.pdf",
+        "page": 6,
+        "excerpt": "The action Shoot can be used to fire an arrow in a straight line ... until it either hits (and hence kills) the wumpus or hits a wall. The agent has only one arrow, so only the first Shoot action has any effect."
+      }
+    ],
+    "validation_status": "verified"
+  },
+  {
+    "id": "q020",
+    "category": "chapter_3",
+    "type": "factual",
+    "question": "What are the five Wumpus World percepts listed on the slides?",
+    "answer": "Stench, Breeze, Glitter, Bump, and Scream.",
+    "sources": [
+      {
+        "file": "Slides - Ch3 - Reasoning & Decision Making - Annotated.pdf",
+        "page": 7,
+        "excerpt": "The percepts will be given in the form of a list of five symbols ... [Stench,Breeze,None,None,None]"
+      }
+    ],
+    "validation_status": "verified"
+  },
+  {
+    "id": "q021",
+    "category": "chapter_3",
+    "type": "factual",
+    "question": "What is a knowledge base (KB)?",
+    "answer": "A knowledge base is a set of sentences.",
+    "sources": [
+      {
+        "file": "Slides - Ch3 - Reasoning & Decision Making - Annotated.pdf",
+        "page": 10,
+        "excerpt": "A Knowledge Base (KB) is a set of sentences"
+      }
+    ],
+    "validation_status": "verified"
+  },
+  {
+    "id": "q022",
+    "category": "chapter_3",
+    "type": "factual",
+    "question": "What does it mean for a sentence α to be true in a model m?",
+    "answer": "It means that sentence α is true in model m; equivalently, m satisfies α or m is a model of α.",
+    "sources": [
+      {
+        "file": "Slides - Ch3 - Reasoning & Decision Making - Annotated.pdf",
+        "page": 11,
+        "excerpt": "Sentence α is true in model m; m satisfies α; m is a model of α"
+      }
+    ],
+    "validation_status": "verified"
+  },
+  {
+    "id": "q023",
+    "category": "chapter_3",
+    "type": "comparative",
+    "question": "What is the difference between soundness and completeness for an inference algorithm?",
+    "answer": "Soundness means it derives only entailed sentences, while completeness means it can derive any sentence that is entailed.",
+    "sources": [
+      {
+        "file": "Slides - Ch3 - Reasoning & Decision Making - Annotated.pdf",
+        "page": 13,
+        "excerpt": "An inference algorithm that derives only entailed sentences is called sound ... An inference algorithm is complete if it can derive any sentence that is entailed"
+      }
+    ],
+    "validation_status": "verified"
+  },
+  {
+    "id": "q024",
+    "category": "chapter_3",
+    "type": "factual",
+    "question": "What does monotonicity mean in the slides?",
+    "answer": "It means the set of entailed sentences can only increase as information is added to the knowledge base.",
+    "sources": [
+      {
+        "file": "Slides - Ch3 - Reasoning & Decision Making - Annotated.pdf",
+        "page": 27,
+        "excerpt": "the set of entailed sentences can only increase as information is added to the knowledge base"
+      }
+    ],
+    "validation_status": "verified"
+  },
+  {
+    "id": "q025",
+    "category": "chapter_4",
+    "type": "conceptual",
+    "question": "Why is preprocessing needed before learning modules use sensor data?",
+    "answer": "Because sensors often encounter artifacts, noise, and other issues, so preprocessing increases data quality and the amount of good information.",
+    "sources": [
+      {
+        "file": "Slides - Ch4 - Preprocessing - Annotated.pdf",
+        "page": 2,
+        "excerpt": "These sensors often encounter artifacts, noise, and other issues that require some pre-processing, in order to increase their quality and the amount of good information, so that the learning modules can perform their job"
+      }
+    ],
+    "validation_status": "verified"
+  },
+  {
+    "id": "q026",
+    "category": "chapter_4",
+    "type": "factual",
+    "question": "Name four preprocessing steps listed on the slides.",
+    "answer": "Any four of the following: noise reduction, drift correction or trend estimation, normalization, feature extraction, dimensionality reduction, source separation, missing data estimation, data fusion.",
+    "sources": [
+      {
+        "file": "Slides - Ch4 - Preprocessing - Annotated.pdf",
+        "page": 3,
+        "excerpt": "noise reduction; drift correction, trend estimation; normalization; feature extraction; dimensionality reduction; source separation; missing data estimation; data fusion"
+      }
+    ],
+    "validation_status": "verified"
+  },
+  {
+    "id": "q027",
+    "category": "chapter_4",
+    "type": "factual",
+    "question": "What is aliasing?",
+    "answer": "It is when sampling makes signals become aliases of each other, or indistinguishable, so reconstructing from the samples does not recover the original signal.",
+    "sources": [
+      {
+        "file": "Slides - Ch4 - Preprocessing - Annotated.pdf",
+        "page": 12,
+        "excerpt": "Aliasing: when sampling is such that signals become “aliases” of each other, or indistinguishable ... when you reconstruct the signal based on the samples, you can’t get the original signal"
+      }
+    ],
+    "validation_status": "verified"
+  },
+  {
+    "id": "q028",
+    "category": "chapter_4",
+    "type": "comparative",
+    "question": "What is the difference between artifacts and noise?",
+    "answer": "Artifacts are errors introduced by the measurement or processing system and are often systematic, while noise is random, unpredictable interference that is generally unavoidable.",
+    "sources": [
+      {
+        "file": "Slides - Ch4 - Preprocessing - Annotated.pdf",
+        "page": 13,
+        "excerpt": "Artifacts are errors introduced by the measurement or processing system itself and are often systematic. Noise is random, unpredictable interference inherent to the environment or the system, generally unavoidable."
+      }
+    ],
+    "validation_status": "verified"
+  },
+  {
+    "id": "q029",
+    "category": "chapter_4",
+    "type": "factual",
+    "question": "What does the DFT do to a time-series?",
+    "answer": "It takes a time-series from the time domain to the frequency domain.",
+    "sources": [
+      {
+        "file": "Slides - Ch4 - Preprocessing - Annotated.pdf",
+        "page": 16,
+        "excerpt": "DFT takes a time-series from time domain to frequency domain"
+      }
+    ],
+    "validation_status": "verified"
+  },
+  {
+    "id": "q030",
+    "category": "chapter_4",
+    "type": "factual",
+    "question": "What is an FFT according to the slides?",
+    "answer": "It is any efficient algorithm for calculating the DFT.",
+    "sources": [
+      {
+        "file": "Slides - Ch4 - Preprocessing - Annotated.pdf",
+        "page": 16,
+        "excerpt": "Fast Fourier Transform (FFT) is any efficient algorithm for calculating the DFT"
+      }
+    ],
+    "validation_status": "verified"
+  },
+  {
+    "id": "q031",
+    "category": "chapter_4",
+    "type": "factual",
+    "question": "What does the power spectral density (PSD) show?",
+    "answer": "It shows how much power the time-series has for different frequency values.",
+    "sources": [
+      {
+        "file": "Slides - Ch4 - Preprocessing - Annotated.pdf",
+        "page": 17,
+        "excerpt": "PSD shows how much power the time-series has for different frequency values (power vs frequency plot)"
+      }
+    ],
+    "validation_status": "verified"
+  },
+  {
+    "id": "q032",
+    "category": "chapter_4",
+    "type": "factual",
+    "question": "According to the slides, what is generally correlated with the squared amplitude of the DFT?",
+    "answer": "The power spectral density (PSD).",
+    "sources": [
+      {
+        "file": "Slides - Ch4 - Preprocessing - Annotated.pdf",
+        "page": 17,
+        "excerpt": "Generally, PSD is correlated with the squared amplitude of the DFT"
+      }
+    ],
+    "validation_status": "verified"
+  },
+  {
+    "id": "q033",
+    "category": "chapter_5",
+    "type": "factual",
+    "question": "What is machine learning according to the slides?",
+    "answer": "Machine learning is a subset of AI in which computer algorithms learn from data to make determinations or predictions and generalize them to new data without being explicitly programmed.",
+    "sources": [
+      {
+        "file": "Slides - Ch5 - Machine Learning - Annotated.pdf",
+        "page": 2,
+        "excerpt": "Machine learning is a subset of artificial intelligence (AI) ... can learn from data to make determinations or predictions and generalize them to new data without explicitly being programmed"
+      }
+    ],
+    "validation_status": "verified"
+  },
+  {
+    "id": "q034",
+    "category": "chapter_5",
+    "type": "comparative",
+    "question": "What is the difference between supervised and unsupervised learning?",
+    "answer": "Supervised learning requires labeled data or known classes, while unsupervised learning does not require classes or labels.",
+    "sources": [
+      {
+        "file": "Slides - Ch5 - Machine Learning - Annotated.pdf",
+        "page": 5,
+        "excerpt": "Supervised algorithms requires data to be labeled ... Unsupervised algorithms don’t require the classes or labels"
+      }
+    ],
+    "validation_status": "verified"
+  },
+  {
+    "id": "q035",
+    "category": "chapter_5",
+    "type": "comparative",
+    "question": "What is the difference between training and testing in machine learning?",
+    "answer": "Training uses a dataset to develop the model, while testing uses a different dataset to test how the developed system works.",
+    "sources": [
+      {
+        "file": "Slides - Ch5 - Machine Learning - Annotated.pdf",
+        "page": 6,
+        "excerpt": "Training: use a dataset to develop the system/model. Testing: use a dataset (different from the training set) to test how the developed system works"
+      }
+    ],
+    "validation_status": "verified"
+  },
+  {
+    "id": "q036",
+    "category": "chapter_5",
+    "type": "comparative",
+    "question": "What is the difference between a classifier and a regressor?",
+    "answer": "A classifier discriminates between a number of finite outputs, usually using a probability, while a regressor generates an output.",
+    "sources": [
+      {
+        "file": "Slides - Ch5 - Machine Learning - Annotated.pdf",
+        "page": 6,
+        "excerpt": "Classifier: can discriminate between a number of finite outputs, usually using a probability. Regressor: generates an output"
+      }
+    ],
+    "validation_status": "verified"
+  },
+  {
+    "id": "q037",
+    "category": "chapter_5",
+    "type": "comparative",
+    "question": "How do discriminative and generative models differ?",
+    "answer": "Discriminative models draw boundaries in the data space, while generative models try to model the distribution of the data.",
+    "sources": [
+      {
+        "file": "Slides - Ch5 - Machine Learning - Annotated.pdf",
+        "page": 6,
+        "excerpt": "Discriminative models draw boundaries in the data space, while generative models try to model the distribution of the data"
+      }
+    ],
+    "validation_status": "verified"
+  },
+  {
+    "id": "q038",
+    "category": "chapter_5",
+    "type": "factual",
+    "question": "Which evaluation metrics are explicitly listed on the slides?",
+    "answer": "Accuracy, precision, and recall.",
+    "sources": [
+      {
+        "file": "Slides - Ch5 - Machine Learning - Annotated.pdf",
+        "page": 7,
+        "excerpt": "Evaluation of ML algorithms: accuracy, precision, recall"
+      }
+    ],
+    "validation_status": "verified"
+  },
+  {
+    "id": "q039",
+    "category": "chapter_5",
+    "type": "factual",
+    "question": "What do the slides say a true positive and a false negative are?",
+    "answer": "A true positive is something correctly detected as the target, and a false negative is something incorrectly missed as a target.",
+    "sources": [
+      {
+        "file": "Slides - Ch5 - Machine Learning - Annotated.pdf",
+        "page": 7,
+        "excerpt": "True Positive: correctly detected as the target ... False Negative: incorrectly missed as a target"
+      }
+    ],
+    "validation_status": "verified"
+  },
+  {
+    "id": "q040",
+    "category": "chapter_5",
+    "type": "conceptual",
+    "question": "What does the No Free Lunch Theorem imply for model choice?",
+    "answer": "No single model works for every problem, so different models should be tested and compared for a given problem.",
+    "sources": [
+      {
+        "file": "Slides - Ch5 - Machine Learning - Annotated.pdf",
+        "page": 14,
+        "excerpt": "No single model works for every problem ... Therefore, we need to test different models for a given problem and quantify/compare the results"
+      }
+    ],
+    "validation_status": "verified"
+  },
+  {
+    "id": "q041",
+    "category": "syllabus_admin",
+    "type": "factual",
+    "question": "What course number and title appear on the slides?",
+    "answer": "ELEC 472: Artificial Intelligence.",
+    "sources": [
+      {
+        "file": "Slides - Ch1 - Introduction.pdf",
+        "page": 1,
+        "excerpt": "ELEC 472: Artificial Intelligence"
+      }
+    ],
+    "validation_status": "verified"
+  },
+  {
+    "id": "q042",
+    "category": "syllabus_admin",
+    "type": "factual",
+    "question": "Who is the instructor listed on the slides?",
+    "answer": "Ali Etemad.",
+    "sources": [
+      {
+        "file": "Slides - Ch1 - Introduction.pdf",
+        "page": 1,
+        "excerpt": "Ali Etemad"
+      }
+    ],
+    "validation_status": "verified"
+  },
+  {
+    "id": "q043",
+    "category": "syllabus_admin",
+    "type": "factual",
+    "question": "According to the “ELEC 472 and AI” slide, which chapters are associated with search, reasoning and logic, reinforcement learning, swarm intelligence, machine learning, and data pre-processing?",
+    "answer": "Search is Chapter 2; reasoning and logic, reinforcement learning, and swarm intelligence are Chapter 3; machine learning is Chapter 5; and data pre-processing is Chapter 4.",
+    "sources": [
+      {
+        "file": "Slides - Ch1 - Introduction.pdf",
+        "page": 37,
+        "excerpt": "searching through the entire state-space ... (Chapter 2) ... reasoning and logic ... (Chapter 3) ... reinforcement learning ... (Chapter 3) ... swarm intelligence ... (Chapter 3) ... machine learning (Chapter 5) ... data pre-processing ... (Chapter 4)"
+      }
+    ],
+    "validation_status": "verified"
+  },
+  {
+    "id": "q044",
+    "category": "cross_chapter",
+    "type": "cross_chapter",
+    "question": "Why is preprocessing important before applying machine learning to sensor data?",
+    "answer": "Because sensor data can contain artifacts and noise, preprocessing increases data quality and the amount of good information, and machine learning learns from such data.",
+    "sources": [
+      {
+        "file": "Slides - Ch4 - Preprocessing - Annotated.pdf",
+        "page": 2,
+        "excerpt": "These sensors often encounter artifacts, noise, and other issues that require some pre-processing, in order to increase their quality and the amount of good information"
+      },
+      {
+        "file": "Slides - Ch5 - Machine Learning - Annotated.pdf",
+        "page": 2,
+        "excerpt": "Machine learning ... can learn from data to make determinations or predictions"
+      }
+    ],
+    "validation_status": "verified"
+  },
+  {
+    "id": "q045",
+    "category": "cross_chapter",
+    "type": "cross_chapter",
+    "question": "How do the slides distinguish search-based agents from learning-based agents?",
+    "answer": "Search-based agents make decisions by searching through the state space of a problem, while learning-based agents learn from data.",
+    "sources": [
+      {
+        "file": "Slides - Ch1 - Introduction.pdf",
+        "page": 37,
+        "excerpt": "Agents can make decision based on searching through the entire state-space of a problem"
+      },
+      {
+        "file": "Slides - Ch4 - Preprocessing - Annotated.pdf",
+        "page": 2,
+        "excerpt": "our focus in this course is “learning” agents (agents that learn a relationship between inputs and outputs)"
+      }
+    ],
+    "validation_status": "verified"
+  },
+  {
+    "id": "q046",
+    "category": "cross_chapter",
+    "type": "cross_chapter",
+    "question": "How are rational agents in Chapter 1 connected to search and reasoning in later chapters?",
+    "answer": "Chapter 1 defines rational behaviour as doing the right thing to maximize goal achievement given available information, and later slides show agents doing this through search and reasoning/logic.",
+    "sources": [
+      {
+        "file": "Slides - Ch1 - Introduction.pdf",
+        "page": 7,
+        "excerpt": "Rational behaviour: doing the right thing ... expected to maximize goal achievement, given the available information"
+      },
+      {
+        "file": "Slides - Ch1 - Introduction.pdf",
+        "page": 37,
+        "excerpt": "Agents can make decision based on searching through the entire state-space ... reasoning and logic may be used to make decisions"
+      }
+    ],
+    "validation_status": "verified"
+  },
+  {
+    "id": "q047",
+    "category": "cross_chapter",
+    "type": "cross_chapter",
+    "question": "How does reinforcement learning in Chapter 3 relate to the general notion of machine learning in Chapter 5?",
+    "answer": "Reinforcement learning is a way to train agents to make a sequence of decisions to achieve a goal, and Chapter 5 frames machine learning more broadly as algorithms that learn from data.",
+    "sources": [
+      {
+        "file": "Slides - Ch3 - Reasoning & Decision Making - Annotated.pdf",
+        "page": 61,
+        "excerpt": "Reinforcement Learning (RL) mimics this notion to teach (train) agents to make a “sequence of decisions” to achieve a goal"
+      },
+      {
+        "file": "Slides - Ch5 - Machine Learning - Annotated.pdf",
+        "page": 2,
+        "excerpt": "Machine learning: Computer algorithms that can learn from data"
+      }
+    ],
+    "validation_status": "verified"
+  },
+  {
+    "id": "q048",
+    "category": "cross_chapter",
+    "type": "cross_chapter",
+    "question": "How can Fourier-based preprocessing and ML evaluation metrics both appear in one AI pipeline?",
+    "answer": "A pipeline can first transform a time-series from the time domain to the frequency domain using the DFT, then evaluate the resulting ML model with metrics such as accuracy, precision, and recall.",
+    "sources": [
+      {
+        "file": "Slides - Ch4 - Preprocessing - Annotated.pdf",
+        "page": 16,
+        "excerpt": "DFT takes a time-series from time domain to frequency domain"
+      },
+      {
+        "file": "Slides - Ch5 - Machine Learning - Annotated.pdf",
+        "page": 7,
+        "excerpt": "Evaluation of ML algorithms: accuracy, precision, recall"
+      }
+    ],
+    "validation_status": "verified"
+  },
+  {
+    "id": "q049",
+    "category": "out_of_scope",
+    "type": "out_of_scope",
+    "question": "What is the capital of France?",
+    "answer": "The uploaded slides do not provide enough information to answer this question.",
+    "sources": [],
+    "validation_note": "No supporting excerpt was found in the uploaded ELEC 472 slides. This item is intentionally out of scope and should trigger an insufficient-information response.",
+    "validation_status": "out_of_scope_verified"
+  },
+  {
+    "id": "q050",
+    "category": "out_of_scope",
+    "type": "out_of_scope",
+    "question": "What year was Python first released?",
+    "answer": "The uploaded slides do not provide enough information to answer this question.",
+    "sources": [],
+    "validation_note": "No supporting excerpt was found in the uploaded ELEC 472 slides. This item is intentionally out of scope and should trigger an insufficient-information response.",
+    "validation_status": "out_of_scope_verified"
+  }
+]
