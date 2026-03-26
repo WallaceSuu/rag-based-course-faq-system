@@ -4,18 +4,30 @@ from pathlib import Path
 from statistics import mean
 from typing import Any, Dict, List, Optional, Sequence, Set, Tuple
 
+from dotenv import load_dotenv
 from openai import OpenAI
 
-from .generation import generate_answer
-from .hallucination import detect_hallucination
-from .retrieval import retrieve
+try:
+    from .generation import generate_answer
+    from .hallucination import detect_hallucination
+    from .retrieval import retrieve
+except ImportError:
+    # Allow direct execution via `py .\evaluation.py` from `backend/app`.
+    from generation import generate_answer
+    from hallucination import detect_hallucination
+    from retrieval import retrieve
 
-client = OpenAI()
+
+def _get_client() -> OpenAI:
+    return OpenAI()
+
+
+load_dotenv(Path(__file__).resolve().parent.parent / ".env")
 
 
 def baseline_answer(question: str) -> str:
     # Baseline call without retrieval context (just LLM, no RAG)
-    response = client.chat.completions.create(
+    response = _get_client().chat.completions.create(
         model="gpt-4o-mini",
         temperature=0,
         messages=[
@@ -149,7 +161,7 @@ Return ONLY JSON with this schema:
         "evidence_refs": evidence_refs,
     }
 
-    response = client.chat.completions.create(
+    response = _get_client().chat.completions.create(
         model="gpt-4o-mini",
         temperature=0,
         response_format={"type": "json_object"},
@@ -403,8 +415,7 @@ if __name__ == "__main__":
     if not path and len(sys.argv) > 1:
         path = sys.argv[1]
     if not path:
-        print("Set GOLDEN_DATASET_PATH or pass the dataset path as the first argument.", file=sys.stderr)
-        sys.exit(1)
+        path = str(Path(__file__).resolve().parent.parent / "data" / "golden_dataset.json")
     summary = evaluate(path)
 
     output_path = os.environ.get("EVALUATION_OUTPUT_PATH")

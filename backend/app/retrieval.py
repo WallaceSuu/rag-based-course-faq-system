@@ -3,7 +3,11 @@ from typing import Dict, List
 
 from openai import OpenAI
 
-from .db import get_conn
+try:
+    from .db import get_conn
+except ImportError:
+    # Allow imports when sibling modules are executed as top-level scripts.
+    from db import get_conn
 
 
 def retrieve(question: str, top_k: int = 5) -> List[Dict]:
