@@ -6,3 +6,4 @@ node_modules/
 dist/
 backend/.env
 slides/
+.resume.README

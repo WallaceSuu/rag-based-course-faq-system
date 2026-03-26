@@ -15,6 +15,9 @@ export default function App() {
   const [ingestLoading, setIngestLoading] = useState(false);
   const [ingestMessage, setIngestMessage] = useState("");
   const [ingestError, setIngestError] = useState("");
+  const hasResult = Boolean(result?.answer);
+  const resultChunkCount = result?.chunks?.length ?? 0;
+  const modeLabel = activeTab === "qa" ? "Interrogate the corpus" : "Inspect the audit trail";
 
   async function fetchLogs() {
     const res = await fetch(`${API_BASE}/logs`);
@@ -81,46 +84,89 @@ export default function App() {
 
   return (
     <main className="app">
-      <h1>RAG-Based Course Q&A Dashboard</h1>
-      <div className="tabs">
-        <button
-          className={activeTab === "qa" ? "tab active" : "tab"}
-          onClick={() => setActiveTab("qa")}
-        >
-          Query
-        </button>
-        <button
-          className={activeTab === "logs" ? "tab active" : "tab"}
-          onClick={() => setActiveTab("logs")}
-        >
-          Logs
-        </button>
-      </div>
+      <section className="hero-shell">
+        <header className="hero">
+          <div className="hero-copy">
+            <p className="eyebrow">Course intelligence console</p>
+            <h1>Ask your course material like it remembers everything.</h1>
+            <p className="hero-subtitle">
+              Index lecture files, interrogate concepts, inspect supporting passages, and
+              track grounding quality in one immersive workspace.
+            </p>
+          </div>
+
+          <div className="hero-aside" aria-label="Workspace summary">
+            <div className="hero-stat">
+              <span className="hero-stat-label">Mode</span>
+              <strong>{modeLabel}</strong>
+            </div>
+            <div className="hero-stat">
+              <span className="hero-stat-label">Logged queries</span>
+              <strong>{logs.length}</strong>
+            </div>
+            <div className="hero-stat">
+              <span className="hero-stat-label">Current evidence set</span>
+              <strong>{resultChunkCount}</strong>
+            </div>
+          </div>
+        </header>
+
+        <div className="tabs" role="tablist" aria-label="Workspace sections">
+          <button
+            type="button"
+            role="tab"
+            aria-selected={activeTab === "qa"}
+            className={activeTab === "qa" ? "tab active" : "tab"}
+            onClick={() => setActiveTab("qa")}
+          >
+            <span className="tab-label">Query</span>
+            <span className="tab-caption">Ask and inspect evidence</span>
+          </button>
+          <button
+            type="button"
+            role="tab"
+            aria-selected={activeTab === "logs"}
+            className={activeTab === "logs" ? "tab active" : "tab"}
+            onClick={() => setActiveTab("logs")}
+          >
+            <span className="tab-label">Logs</span>
+            <span className="tab-caption">Review prior runs</span>
+          </button>
+        </div>
+      </section>
 
       {activeTab === "qa" && (
-        <>
+        <section className="qa-layout">
           <section className="panel query-panel">
             <div className="panel-header">
               <div className="panel-header-text">
-                <h2>Query Panel</h2>
+                <p className="section-kicker">Workspace</p>
+                <h2>Interrogate the indexed course material</h2>
                 <p className="ingest-hint">
-                  Index course files from the server <code>slides/</code> folder (PDF, PPTX, DOCX).
-                  Skips files already ingested.
+                  Pull documents from the server <code>slides/</code> directory, then ask focused
+                  questions and inspect the exact passages used to answer them.
                 </p>
               </div>
-              <button
-                type="button"
-                className="btn-ingest"
-                onClick={handleIngest}
-                disabled={ingestLoading}
-                aria-label="Ingest course files from the slides folder"
-              >
-                {ingestLoading ? "Ingesting…" : "Ingest slides"}
-              </button>
+              <div className="query-panel-actions">
+                <div className="query-panel-note">
+                  PDF, PPTX, and DOCX files are indexed once and skipped on repeat runs.
+                </div>
+                <button
+                  type="button"
+                  className="btn-ingest"
+                  onClick={handleIngest}
+                  disabled={ingestLoading}
+                  aria-label="Ingest course files from the slides folder"
+                >
+                  {ingestLoading ? "Ingesting..." : "Ingest slides"}
+                </button>
+              </div>
             </div>
-            {ingestLoading && <div className="spinner">Indexing documents…</div>}
-            {ingestError && <p className="error">{ingestError}</p>}
-            {ingestMessage && <p className="ingest-success">{ingestMessage}</p>}
+            <div className="status-stack" aria-live="polite">
+              {ingestLoading && <div className="spinner">Indexing documents...</div>}
+              {ingestError && <p className="error">{ingestError}</p>}
+              {ingestMessage && <p className="ingest-success">{ingestMessage}</p>}
+            </div>
 
             <QueryInput
               question={question}
@@ -128,21 +174,33 @@ export default function App() {
               onSubmit={onSubmit}
               loading={loading}
             />
-            {loading && <div className="spinner">Loading...</div>}
-            {error && <p className="error">{error}</p>}
+            <div className="status-stack" aria-live="polite">
+              {loading && <div className="spinner">Synthesizing answer...</div>}
+              {error && <p className="error">{error}</p>}
+            </div>
           </section>
 
-          <AnswerCard answer={result?.answer} hallucination={result?.hallucination} />
-          <SourceChunks chunks={result?.chunks || []} />
-        </>
+          <div className={hasResult ? "results-layout has-result" : "results-layout"}>
+            <AnswerCard answer={result?.answer} hallucination={result?.hallucination} />
+            <SourceChunks chunks={result?.chunks || []} />
+          </div>
+        </section>
       )}
 
       {activeTab === "logs" && (
-        <section className="panel">
-          <h2>Logs Panel</h2>
-          <button className="refresh" onClick={fetchLogs}>
-            Refresh Logs
-          </button>
+        <section className="panel logs-panel">
+          <div className="panel-header logs-header">
+            <div className="panel-header-text">
+              <p className="section-kicker">Audit trail</p>
+              <h2>Review previous question runs</h2>
+              <p className="ingest-hint">
+                Inspect timestamps, prompt history, and hallucination outcomes from prior queries.
+              </p>
+            </div>
+            <button className="refresh" onClick={fetchLogs}>
+              Refresh logs
+            </button>
+          </div>
           <div className="table-wrap">
             <table>
               <thead>
@@ -158,7 +216,15 @@ export default function App() {
                   <tr key={log.id}>
                     <td>{new Date(log.created_at).toLocaleString()}</td>
                     <td>{log.question}</td>
-                    <td>{log.hallucination_flag ? "Yes" : "No"}</td>
+                    <td>
+                      <span
+                        className={
+                          log.hallucination_flag ? "log-flag log-flag-alert" : "log-flag log-flag-safe"
+                        }
+                      >
+                        {log.hallucination_flag ? "Flagged" : "Clear"}
+                      </span>
+                    </td>
                     <td>{log.hallucination_detail}</td>
                   </tr>
                 ))}
