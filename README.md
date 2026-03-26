@@ -2,6 +2,10 @@
 
 Production-ready Retrieval-Augmented Generation (RAG) app for university course material Q&A with hallucination detection.
 
+## Results
+
+The following are results from testing the RAG and LLM
+
 ## Stack
 
 - Frontend: React + Vite (`http://localhost:5173`)
