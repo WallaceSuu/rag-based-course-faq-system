@@ -4,20 +4,20 @@ Production-ready Retrieval-Augmented Generation (RAG) app for university course 
 
 ## Results
 
-**Recruiter takeaway:** this project does not just implement RAG, it evaluates whether retrieval actually makes answers safer and more grounded.
+this project does not just implement RAG, it evaluates whether retrieval actually makes answers safer and more grounded.
 
-Using course notes from **ELEC 472 Artificial Intelligence (Chapters 1-5)** and a **50-question golden dataset**, `backend/app/evaluation.py` compares a baseline LLM against the RAG pipeline on answer quality, hallucination behavior, retrieval quality, and abstention behavior.
+Using course notes from a course I am taking, **ELEC 472 Artificial Intelligence (Chapters 1-5)** and a **50-question golden dataset**, `backend/app/evaluation.py` compares a baseline LLM against the RAG pipeline on answer quality, hallucination behavior, retrieval quality, and abstention behavior.
 
-**Headline result:** the RAG system reduces hallucinations from **82% to 28%**, a **54 percentage-point drop** compared with the baseline model.
+**Main takeaway:** the RAG system reduces hallucinations from **82% to 28%**, a **54 percentage-point drop** compared with the baseline model.
 
-| Metric | Baseline LLM | RAG System | Why it matters |
-| --- | --- | --- | --- |
-| Questions evaluated | 50 | 50 | Evaluated on a fixed golden dataset rather than anecdotal prompts |
-| Accuracy | 68% | 62% | Measures end-to-end answer correctness |
-| Hallucination rate | 82% | 28% | Lower is better; shows the RAG pipeline is substantially more grounded |
-| Retrieval Hit@5 | N/A | 12% | Checks whether relevant evidence appears in the top 5 retrieved chunks |
-| Retrieval MRR | N/A | 0.068 | Measures how early relevant evidence appears in ranked retrieval results |
-| Abstention accuracy | N/A | 50% | Measures whether the system appropriately says "I don't know" when the notes do not support an answer |
+| Metric              | Baseline LLM | RAG System | Why it matters                                                                                        |
+| ------------------- | ------------ | ---------- | ----------------------------------------------------------------------------------------------------- |
+| Questions evaluated | 50           | 50         | Evaluated on a fixed golden dataset rather than anecdotal prompts                                     |
+| Accuracy            | 68%          | 62%        | Measures end-to-end answer correctness                                                                |
+| Hallucination rate  | 82%          | 28%        | Lower is better; shows the RAG pipeline is substantially more grounded                                |
+| Retrieval Hit@5     | N/A          | 12%        | Checks whether relevant evidence appears in the top 5 retrieved chunks                                |
+| Retrieval MRR       | N/A          | 0.068      | Measures how early relevant evidence appears in ranked retrieval results                              |
+| Abstention accuracy | N/A          | 50%        | Measures whether the system appropriately says "I don't know" when the notes do not support an answer |
 
 These results show a realistic tradeoff that matters in production AI systems: the baseline LLM is slightly higher on raw accuracy, but the RAG system is much less likely to fabricate unsupported answers.
 
