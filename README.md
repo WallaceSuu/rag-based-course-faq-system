@@ -2,8 +2,6 @@
 
 An end-to-end retrieval-augmented question answering system for university course materials, built to answer questions from uploaded lecture files while exposing how grounded each answer really is. The project combines ingestion, vector search, answer generation, hallucination detection, query logging, and benchmark-based evaluation in one full-stack workflow.
 
-This repository is especially useful as a portfolio project because it does not stop at "RAG works." It measures whether retrieval actually improves answer safety compared with a no-retrieval baseline.
-
 ## Table of Contents
 
 - [Why This Project Stands Out](#why-this-project-stands-out)
@@ -33,30 +31,30 @@ The evaluation pipeline in `backend/app/evaluation.py` benchmarks the system aga
 
 Main finding: the RAG pipeline reduces hallucinations from **82% to 28%**, a **54 percentage-point drop** compared with the baseline LLM.
 
-| Metric | Baseline LLM | RAG System | Why it matters |
-| --- | --- | --- | --- |
-| Questions evaluated | 50 | 50 | Uses a fixed benchmark instead of anecdotal prompts |
-| Accuracy | 68% | 62% | Measures end-to-end answer correctness |
-| Hallucination rate | 82% | 28% | Lower is better; shows substantially stronger grounding |
-| Retrieval Hit@5 | N/A | 12% | Checks whether relevant evidence appears in the top 5 chunks |
-| Retrieval MRR | N/A | 0.068 | Measures how early relevant evidence appears in ranked retrieval |
-| Abstention accuracy | N/A | 50% | Measures whether the system appropriately says the source material is insufficient |
+| Metric              | Baseline LLM | RAG System | Why it matters                                                                     |
+| ------------------- | ------------ | ---------- | ---------------------------------------------------------------------------------- |
+| Questions evaluated | 50           | 50         | Uses a fixed benchmark instead of anecdotal prompts                                |
+| Accuracy            | 68%          | 62%        | Measures end-to-end answer correctness                                             |
+| Hallucination rate  | 82%          | 28%        | Lower is better; shows substantially stronger grounding                            |
+| Retrieval Hit@5     | N/A          | 12%        | Checks whether relevant evidence appears in the top 5 chunks                       |
+| Retrieval MRR       | N/A          | 0.068      | Measures how early relevant evidence appears in ranked retrieval                   |
+| Abstention accuracy | N/A          | 50%        | Measures whether the system appropriately says the source material is insufficient |
 
 This is a realistic tradeoff that matters in production AI systems: the baseline model is slightly stronger on raw accuracy, but the RAG system is much less likely to fabricate unsupported claims.
 
 ## Tech Stack
 
-| Layer | Technology |
-| --- | --- |
-| Frontend | React 18, Vite |
-| Backend API | FastAPI, Uvicorn |
-| Database | PostgreSQL 16 |
-| Vector Search | pgvector |
-| Embeddings | `text-embedding-3-small` |
-| Generation Model | `gpt-4o-mini` |
+| Layer            | Technology                        |
+| ---------------- | --------------------------------- |
+| Frontend         | React 18, Vite                    |
+| Backend API      | FastAPI, Uvicorn                  |
+| Database         | PostgreSQL 16                     |
+| Vector Search    | pgvector                          |
+| Embeddings       | `text-embedding-3-small`          |
+| Generation Model | `gpt-4o-mini`                     |
 | Document Parsing | PyMuPDF, python-pptx, python-docx |
-| Chunking | LangChain text splitters |
-| Runtime | Docker Compose |
+| Chunking         | LangChain text splitters          |
+| Runtime          | Docker Compose                    |
 
 ## How the System Works
 
@@ -210,21 +208,21 @@ curl -X POST http://localhost:8000/query \
 
 ## Environment Variables
 
-| Variable | Required | Purpose | Default / Notes |
-| --- | --- | --- | --- |
-| `OPENAI_API_KEY` | Yes | Used for embeddings, answer generation, and hallucination detection | Must be provided in `backend/.env` |
-| `DATABASE_URL` | Yes | PostgreSQL connection string | Docker Compose provides a working default |
-| `GOLDEN_DATASET_PATH` | No | Path to the benchmark dataset used by `/evaluate` | Set automatically in Docker Compose to `/app/data/golden_dataset.json` |
-| `SLIDES_PATH` | No | Folder scanned by the ingestion endpoint | Defaults to `/app/slides` in Docker |
+| Variable              | Required | Purpose                                                             | Default / Notes                                                        |
+| --------------------- | -------- | ------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| `OPENAI_API_KEY`      | Yes      | Used for embeddings, answer generation, and hallucination detection | Must be provided in `backend/.env`                                     |
+| `DATABASE_URL`        | Yes      | PostgreSQL connection string                                        | Docker Compose provides a working default                              |
+| `GOLDEN_DATASET_PATH` | No       | Path to the benchmark dataset used by `/evaluate`                   | Set automatically in Docker Compose to `/app/data/golden_dataset.json` |
+| `SLIDES_PATH`         | No       | Folder scanned by the ingestion endpoint                            | Defaults to `/app/slides` in Docker                                    |
 
 ## API Reference
 
-| Method | Endpoint | Purpose |
-| --- | --- | --- |
-| `POST` | `/ingest` | Scans the `slides/` folder, parses supported files, chunks content, generates embeddings, and stores vectors |
-| `POST` | `/query` | Retrieves relevant chunks, generates an answer, runs hallucination detection, and logs the interaction |
-| `GET` | `/logs` | Returns query logs in reverse chronological order |
-| `POST` | `/evaluate` | Runs the benchmark pipeline on the golden dataset and returns a structured evaluation summary |
+| Method | Endpoint    | Purpose                                                                                                      |
+| ------ | ----------- | ------------------------------------------------------------------------------------------------------------ |
+| `POST` | `/ingest`   | Scans the `slides/` folder, parses supported files, chunks content, generates embeddings, and stores vectors |
+| `POST` | `/query`    | Retrieves relevant chunks, generates an answer, runs hallucination detection, and logs the interaction       |
+| `GET`  | `/logs`     | Returns query logs in reverse chronological order                                                            |
+| `POST` | `/evaluate` | Runs the benchmark pipeline on the golden dataset and returns a structured evaluation summary                |
 
 ### `POST /query`
 
